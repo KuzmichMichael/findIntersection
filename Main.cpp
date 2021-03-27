@@ -25,6 +25,10 @@ int main() {
 
 const string findIntersection(const string& firstString, const string& secondString)
 {
+	if (firstString.empty() || secondString.empty()) {
+		return "One or both strings if empty ";
+	}
+
 	string resultString{};
 	
 	map<int, int> intersectionCounter{};
@@ -37,6 +41,10 @@ const string findIntersection(const string& firstString, const string& secondStr
 		if (it->second > 1) {
 			resultString += (to_string(it->first) + " ");
 		}
+	}
+
+	if (resultString.empty()) {
+		return "there is no intersection";
 	}
 
 	return resultString;
