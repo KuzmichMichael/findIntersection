@@ -37,9 +37,9 @@ const string findIntersection(const string& firstString, const string& secondStr
 	fillMapWithDigitsFromString(intersectionCounter, secondString);
 
 	
-	for (map<int, int>::iterator it = intersectionCounter.begin(); it != intersectionCounter.end(); it++) {
-		if (it->second > 1) {
-			resultString += (to_string(it->first) + " ");
+	for (auto it : intersectionCounter) {
+		if (it.second > 1) {
+			resultString += (to_string(it.first) + ",");
 		}
 	}
 
@@ -47,6 +47,7 @@ const string findIntersection(const string& firstString, const string& secondStr
 		return "there is no intersection";
 	}
 
+	resultString.pop_back();
 	return resultString;
 }
 
@@ -64,6 +65,5 @@ const void fillMapWithDigitsFromString(map<int, int>& directMap, const string& d
 			digitsBuffer = "";
 		}
 	}
-	return void();
 }
 
